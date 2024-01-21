@@ -21,7 +21,7 @@ import java.util.stream.Stream;
  Spring Security (AbstractAuthenticationToken).
  Este token se utiliza para autenticar y autorizar a los usuarios en la aplicacion.
  */
-@Component
+@Component                                      //Convertimos el JWT en un Abstract....
 public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationToken> {
 
     // Convertidor de autoridades JWT proporcionado por Spring Security
@@ -60,7 +60,7 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
 
     // Metodo para extraer los roles de recursos del JWT
     private Collection<? extends GrantedAuthority> extractResourceRoles(Jwt jwt) {
-        Map<String, Object> resourceAccess = jwt.getClaim("resource_access");
+        Map<String, Object> resourceAccess = jwt.getClaim("realm_access");
         Map<String, Object> resource;
         Collection<String> resourceRoles;
         if (resourceAccess == null
