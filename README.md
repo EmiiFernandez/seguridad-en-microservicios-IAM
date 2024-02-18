@@ -8,7 +8,7 @@
 
 ## Contenidos
 
-- **Introducción a Identity and Access Management (IAM) con Keycloak.**
+- Introducción a Identity and Access Management (IAM) con Keycloak.
 - Estándares de autenticación y autorización.
 - Técnicas de control de acceso.
 - Integración de IAM en Spring con Keycloak y Spring Boot.
