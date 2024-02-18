@@ -1,0 +1,46 @@
+Práctica Integradora
+Ejercicio práctico
+Nivel de complejidad: avanzado 🔥🔥🔥
+Objetivos
+Configurar Keycloak con todas las opciones viables de seguridad vistas en el curso e integrarlo a una solución basada en Springboot.
+Consigna
+El sistema del hipermercado Casa Digital necesita desarrollar la capacidad de pagar a los proveedores de productos el dinero adeudado por entrega de mercaderías.
+Si bien existe una primera versión de pago a proveedores, la misma no es segura, en términos de autenticación de usuarios del hipermercado y autorización de los mismos, además, hubo falencias con la precaria forma de manejar sesiones de usuario, ya que estos quedaban logeados en el sistema de forma permanente.
+Por otro lado, el hipermercado tuvo problemas con algunos proveedores, por lo que debemos validar que dichos proveedores no estén en una lista negra.
+Sabemos que los usuarios del hipermercado que pueden realizar el pago a proveedores tienen que tener el rol de contador, mientras que los proveedores tienen usuario con rol proveedor para entrar al sistema del hipermercado y cargar sus ventas mayoristas.
+Este usuario proveedor contará con dos atributos para tener la información de empresa y provincia a la que pertenecen, también podrán integrar una lista negra, asociando a dicho usuario a un grupo de proveedores  conflictivos para evitar el recibimiento de pagos por el hipermercado.
+Además, el departamento de seguridad de la información solicita explícitamente la inclusión de un IAM para gestionar el nuevo flujo de pago a proveedores.
+Se requiere que los usuarios se autogestionen sus credenciales de acceso, mediante el uso de IAM e integraciones con google y github, en el caso de altas de usuario en IAM la password no puede ser igual al nombre de usuario, tiene que tener 8 caracteres, expirar en 30 días, la opción de confirmar el password en el alta por duplicado tiene que estar activa y los correos utilizados deben ser validados.
+Como política a cumplir de la cámara de hipermercados, se necesita contar con dos factores de autenticación, por esto el factor OTP tiene que ser incluido como algo obligatorio.
+
+A partir de esta necesidad llevar a cabo las siguientes tareas:
+
+1. Crear un reino en Keycloak llamado market-reino.
+2 .Crear un cliente privado llamado market-gateway-client en el reino para el gateway, habilitando el cliente como seguro.
+3. Crear un cliente privado llamado payment-client en el reino para el servicio payment-service.
+4. Crear un cliente privado llamado supplier-client en el reino para el servicio supplier-data-service.
+5. Crear 4 usuarios en el reino :
+	a. user – pass : user1
+	b. admin – pass : admin1
+	c. proveedor – pass: proveedor1 , empresa: maxiproveedor, provincia : Bs As
+	d. proveedor_block: pass: proveedorBlock , empresa: miniproveedor, provincia: Salta
+6. Crear el rol administrador y asociarlo al usuario admin.
+7. Crear el grupo conflictivo y asociarlo al usuario proveedor_block.
+8. Crear los client scopes para devolver la información de empresa, provincia y grupos.
+9. Habilitar la posibilidad de dar de alta usuarios en el reino.
+10. Modificar la política de password según lo establecido.
+11. Configurar un mail válido y accesible para el usuario admin.
+12. Configurar el cliente SMPT.
+13. Configurar la validación de mail como acción por defecto de autenticación.
+14. Configurar un OTP válido para el usuario admin desde la opción de perfil de cuenta.
+15. Configurar el alta con OTP en el flujo de autenticación del reino.
+16. Modificar el flujo de login del reino para que se pida el segundo factor de autenticación.
+17. Configurar la autenticación de usuarios con google.
+18. Configurar la autenticación de usuarios con github.
+19. Descargar los servicios de payment-service, market-api-gateway y supplier-data-service que componen la solución 	en Springboot y agregar la configuración de cada cliente creando en keycloak
+20. Modificar el servicio payment-service para que pueda invocar por feign de forma segura a la api 	/supplier/blacklist/ del servicio supplier-data-service.
+21. Modificar el repositorio de proveedores del servicio supplier-data-service para que determine si un proveedor 	está dentro del grupo conflictivo utilizando la librería de rest client de keycloak.
+22. Modificar el servicio market-api-gateway de forma tal que asegure que los usuarios deben autenticarse antes de 	poder acceder a los endpoints correspondientes.
+23. Ejecutar desde el gateway el servicio de pago a proveedor parametrizando un proveedor que pertenezca al grupo 	conflictivo y otro que no pertenezca /pay/{supplier}/{amount}
+
+¡Muchos éxitos! ¡A trabajar!
