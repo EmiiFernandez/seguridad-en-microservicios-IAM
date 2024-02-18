@@ -1,6 +1,6 @@
 # Seguridad en Microservicios mediante IAM
 
-## Objetivos de Aprendizaje
+## Objetivos
 
 - Adquirir conocimientos teóricos y prácticos sobre los marcos de autenticación y autorización más seguros de la industria.
 - Diseñar e implementar una arquitectura de seguridad para microservicios a través de Identity and Access Management (IAM).
