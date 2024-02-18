@@ -1,30 +1,18 @@
 # Seguridad en Microservicios mediante IAM
 
-## Objetivos de aprendizaje
+## Objetivos de Aprendizaje
 
-● Adquirir los conocimientos teóricos y prácticos de los marcos de autenticación y
-autorización más seguros de la industria.
-
-● Diseñar e Implementar una arquitectura de seguridad de microservicios a través de un
-Identity and Access Management.
-
-● Integrar la herramienta de Identity and Access Management en una solución basada
-en herramientas de Spring Framework.
+- Adquirir conocimientos teóricos y prácticos sobre los marcos de autenticación y autorización más seguros de la industria.
+- Diseñar e implementar una arquitectura de seguridad para microservicios a través de Identity and Access Management (IAM).
+- Integrar herramientas de IAM en una solución basada en Spring Framework.
 
 ## Contenidos
 
--- Introducción Identity and Access Management (IAM) - Keycloak
-
--- Estándares de Autenticación y Autorización
-
--- Técnicas de control de Acceso
-
--- Integración de IAM en Spring - Keycloak + Spring Boot
-
--- Integración de Keycloak con Spring Cloud
-
--- Gestión de Usuarios
-
--- Comunicación segura entre micro servicios
-
--- Autenticación con redes sociales
+- **Introducción a Identity and Access Management (IAM) con Keycloak.**
+- Estándares de autenticación y autorización.
+- Técnicas de control de acceso.
+- Integración de IAM en Spring con Keycloak y Spring Boot.
+- Integración de Keycloak con Spring Cloud.
+- Gestión de usuarios.
+- Comunicación segura entre microservicios.
+- Autenticación con redes sociales.
